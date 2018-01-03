@@ -61,12 +61,13 @@ export class CreatePostPage {
         mediaType: this.camera.MediaType.PICTURE
       };
 
-      const result = this.camera.getPicture(options);
+      const result = await this.camera.getPicture(options);
 
       const image = `data:image/jpeg:base64,${result}`;
 
       const pictures = storage().ref(`/pictures/image`);
       pictures.putString(image, 'data_url');
+      this.post.postImage = image;
     }
     catch(e) {
       console.error(e);

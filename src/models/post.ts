@@ -4,4 +4,5 @@ export interface Post {
   author: string;
   authorName: string;
   date: string;
+  postImage: string;
 }
