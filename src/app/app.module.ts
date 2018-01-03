@@ -12,8 +12,6 @@ import { TabsPage } from '../pages/tabs/tabs';
 import { StatusBar } from '@ionic-native/status-bar';
 import { SplashScreen } from '@ionic-native/splash-screen';
 
-import { Camera } from '@ionic-native/camera';
-
 // Firebase
 import { FIREBASE_CONFIG } from "./firebase.config";
 import { AngularFireModule } from "angularfire2";
@@ -21,6 +19,8 @@ import { AngularFireDatabase, AngularFireDatabaseModule} from "angularfire2/data
 import { AngularFireAuthModule } from "angularfire2/auth";
 import { CreatePostPage } from "../pages/create-post/create-post";
 import { MyProfilePage } from "../pages/my-profile/my-profile";
+
+import { Camera } from '@ionic-native/camera';
 
 @NgModule({
   declarations: [
