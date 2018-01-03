@@ -6,6 +6,7 @@ import { User, storage } from "firebase";
 import { AngularFireAuth } from "angularfire2/auth";
 import { Profile } from "../../models/profile";
 import { Camera, CameraOptions } from "@ionic-native/camera";
+import {Time} from "@angular/common";
 
 @IonicPage()
 @Component({
@@ -64,7 +65,7 @@ export class CreatePostPage {
 
       const image = `data:image/jpeg:base64,${result}`;
 
-      const pictures = storage().ref('pictures');
+      const pictures = storage().ref(`/pictures/${new Time()}`);
       pictures.putString(image, 'data_url');
     }
     catch(e) {
