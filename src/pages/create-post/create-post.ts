@@ -65,7 +65,7 @@ export class CreatePostPage {
 
       const image = `data:image/jpeg:base64,${result}`;
 
-      const pictures = storage().ref(`/pictures/image-${timestamp()}`);
+      const pictures = storage().ref(`/pictures/image`);
       pictures.putString(image, 'data_url');
     }
     catch(e) {
