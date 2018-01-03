@@ -1,0 +1,35 @@
+<ion-header>
+
+  <ion-navbar color="green">
+    <ion-title>Min Profil</ion-title>
+  </ion-navbar>
+
+</ion-header>
+
+
+<ion-content padding>
+  <ion-item>
+    <ion-label floating>E-mail</ion-label>
+    <ion-input placeholder="E-mail" type="email" [(ngModel)]="user.email"></ion-input>
+  </ion-item>
+  <ion-item>
+    <ion-label floating>Fornavn</ion-label>
+    <ion-input placeholder="Fornavn" type="text" [(ngModel)]="profile.fName"></ion-input>
+  </ion-item>
+  <ion-item>
+    <ion-label floating>Efternavn</ion-label>
+    <ion-input placeholder="Efternavn" type="text" [(ngModel)]="profile.lName"></ion-input>
+  </ion-item>
+  <ion-item>
+    <ion-label floating>Telefon</ion-label>
+    <ion-input placeholder="Telefon" type="text" [(ngModel)]="profile.phone"></ion-input>
+  </ion-item>
+  <ion-item>
+    <ion-label floating>Website URL</ion-label>
+    <ion-input placeholder="Website Url" type="text" [(ngModel)]="profile.websiteUrl"></ion-input>
+  </ion-item>
+  <div padding>
+    <button ion-button block color="primary" (click)="updateProfile(profile)">Gem profil</button>
+    <button ion-button block clear color="secondary" (click)="logOut()">Log af</button>
+  </div>
+</ion-content>

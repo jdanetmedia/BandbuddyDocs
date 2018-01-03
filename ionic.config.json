@@ -1,6 +1,6 @@
 {
   "name": "BandbuddyDoc",
-  "app_id": "",
+  "app_id": "c20b52d0",
   "type": "ionic-angular",
   "integrations": {
     "cordova": {}

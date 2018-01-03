@@ -1,3 +1,11 @@
 page-home {
-
+  .say-something {
+    border: 1px solid #eee;
+    box-shadow: 0px 1px 1px rgba(0,0,0,0.3);
+    -webkit-border-radius: 2px;
+    -moz-border-radius: 2px;
+    border-radius: 2px;
+    padding: 30px;
+    background-color: #fff;
+  }
 }

@@ -1,0 +1,20 @@
+<ion-header>
+
+  <ion-navbar color="green">
+    <ion-title>Skriv opslag</ion-title>
+  </ion-navbar>
+
+</ion-header>
+
+
+<ion-content>
+  <ion-card>
+    <ion-card-content>
+      <ion-textarea type="text" [(ngModel)]="post.postContent" placeholder="Skriv dit opslag her..."></ion-textarea>
+      <ion-item>
+        <ion-icon item-end name="attach" (click)="takePhoto()"></ion-icon>
+        <ion-icon item-end name="send" (click)="createPost(post)"></ion-icon>
+      </ion-item>
+    </ion-card-content>
+  </ion-card>
+</ion-content>
