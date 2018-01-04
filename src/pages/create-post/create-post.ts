@@ -42,6 +42,7 @@ export class CreatePostPage {
     post.author = this.user.uid;
     this.profile.fName ? post.authorName = this.profile.fName : post.authorName = this.user.email;
     this.profile.avatar ? post.authorImage = this.profile.avatar : post.authorImage = null;
+    post.id = `${this.user.uid}-${new Date().getTime()}`;
     post.date = new Date().toDateString();
     const itemsRef = this.database.list('posts');
     itemsRef.push(post);

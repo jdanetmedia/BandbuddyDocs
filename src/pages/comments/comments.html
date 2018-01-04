@@ -1,0 +1,63 @@
+<!--
+  Generated template for the CommentsPage page.
+
+  See http://ionicframework.com/docs/components/#navigation for more info on
+  Ionic pages and navigation.
+-->
+<ion-header>
+
+  <ion-navbar color="green">
+    <ion-title>Kommentér</ion-title>
+  </ion-navbar>
+
+</ion-header>
+
+
+<ion-content>
+  <ion-card>
+
+    <ion-item>
+      <ion-avatar item-start>
+        <img *ngIf="post.authorImage" [src]="post.authorImage">
+        <img *ngIf="!post.authorImage" src="../../assets/imgs/profile-placeholder.png">
+      </ion-avatar>
+      <h2>{{ post.authorName }}</h2>
+      <p>{{ post.date | date: 'd. MMMM yyyy'}}</p>
+    </ion-item>
+
+    <ion-card-content>
+      <p>{{ post.postContent }}</p>
+    </ion-card-content>
+
+    <img *ngIf="post.postImage" [src]="post.postImage">
+    <ion-grid>
+      <ion-row class="comment-cnt">
+        <ion-col col-10>
+          <ion-input placeholder="Din kommentar..." type="text" [(ngModel)]="comment.postComment"></ion-input>
+        </ion-col>
+        <ion-col col-2>
+          <button ion-button clear (click)="postComment(comment)">
+            <ion-icon name="send" color="dark"></ion-icon>
+          </button>
+        </ion-col>
+      </ion-row>
+    </ion-grid>
+    <div class="commentslist" *ngFor="let oneComment of comments | async">
+      <ion-item>
+        <ion-avatar item-start>
+          <img *ngIf="oneComment.commentAuthorImage" [src]="oneComment.commentAuthorImage">
+          <img *ngIf="!oneComment.commentAuthorImage" src="../../assets/imgs/profile-placeholder.png">
+        </ion-avatar>
+        <h2>{{ oneComment.commentAuthor }}</h2>
+        <small color="lightgray">{{ oneComment.commentDate | date: 'd. MMMM yyyy kl. mm:ss'}}</small>
+      </ion-item>
+      <ion-card-content>
+        <div class="comment">
+          {{ oneComment.postComment }}
+        </div>
+
+      </ion-card-content>
+    </div>
+
+  </ion-card>
+</ion-content>

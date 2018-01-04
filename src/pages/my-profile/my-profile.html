@@ -10,8 +10,8 @@
 <ion-content>
   <ion-card class="avatar-cnt" padding>
     <div class="imgCircle">
-      <img *ngIf="profile.avatar" [src]="profile.avatar">
-      <img *ngIf="!profile.avatar" src="../../assets/imgs/profile-placeholder.png">
+      <img *ngIf="profile.avatar" [src]="profile.avatar" (click)="takeProfilePhoto()">
+      <img *ngIf="!profile.avatar" src="../../assets/imgs/profile-placeholder.png" (click)="takeProfilePhoto()">
     </div>
     <p (click)="takeProfilePhoto()" class="add-avatar">Tilføj/ret profilbillede</p>
   </ion-card>

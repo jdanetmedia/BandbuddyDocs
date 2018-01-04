@@ -5,6 +5,8 @@ import { Observable } from "rxjs/Observable";
 import { AngularFireDatabase } from "angularfire2/database";
 import { User } from "firebase";
 import { AngularFireAuth } from "angularfire2/auth";
+import { CommentsPage } from "../comments/comments";
+import { Post } from "../../models/post";
 
 @Component({
   selector: 'page-home',
@@ -18,16 +20,20 @@ export class HomePage {
   constructor(public navCtrl: NavController,
               public database: AngularFireDatabase,
               public afAuth: AngularFireAuth) {
-    this.posts = database.list('posts').valueChanges().map( (arr) => {
-      return arr.reverse();
-    });
     afAuth.authState.subscribe((user: User) => {
       this.user = user;
+    });
+    this.posts = database.list('posts').valueChanges().map( (arr) => {
+      return arr.reverse();
     });
   }
 
   toCreatePostPage() {
     this.navCtrl.push(CreatePostPage);
+  }
+
+  toCommentsPage(post: Post) {
+    this.navCtrl.push(CommentsPage, {post: post});
   }
 
 }

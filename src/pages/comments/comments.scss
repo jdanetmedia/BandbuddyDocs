@@ -1,0 +1,12 @@
+page-comments {
+  .comment {
+    background-color: color($colors, lightgray);
+    padding: 10px;
+    border-radius: 10px;
+    font-weight: 500;
+    margin: 10px 0;
+  }
+  .commentslist {
+    border-top: 1px solid #ebebeb;
+  }
+}
