@@ -1,9 +1,10 @@
 import { Component } from '@angular/core';
 import { IonicPage, NavController, NavParams, ToastController} from 'ionic-angular';
-import { User } from "firebase";
+import { storage, User} from "firebase";
 import { AngularFireAuth } from "angularfire2/auth";
 import { Profile } from "../../models/profile";
 import { AngularFireDatabase } from "angularfire2/database";
+import { Camera, CameraOptions } from "@ionic-native/camera";
 
 @IonicPage()
 @Component({
@@ -19,7 +20,8 @@ export class MyProfilePage {
               public navParams: NavParams,
               public afAuth: AngularFireAuth,
               public database: AngularFireDatabase,
-              private toast: ToastController) {
+              private toast: ToastController,
+              private camera: Camera) {
     afAuth.authState.subscribe((user: User) => {
       this.user = user;
       this.database.object(`/profiles/${this.user.uid}`).valueChanges().subscribe((profile: Profile) => {
@@ -32,6 +34,33 @@ export class MyProfilePage {
 
   ionViewDidLoad() {
     console.log('ionViewDidLoad MyProfilePage');
+  }
+
+  async takeProfilePhoto() {
+    try {
+      // Camera options
+      const options: CameraOptions = {
+        targetWidth: 600,
+        targetHeight: 600,
+        quality: 50,
+        destinationType: this.camera.DestinationType.DATA_URL,
+        encodingType: this.camera.EncodingType.JPEG,
+        mediaType: this.camera.MediaType.PICTURE,
+        correctOrientation: true,
+        cameraDirection: 1
+      }
+      const result = await this.camera.getPicture(options);
+
+      const image = `data:image/jpeg;base64,${result}`;
+
+      // const pictures = storage().ref('pictures/profilbillede');
+      const pictures = storage().ref(`/profilbilleder/profil-${this.user.uid}`);
+      pictures.putString(image, 'data_url');
+      this.profile.avatar = image;
+    }
+    catch(e) {
+      console.error(e);
+    }
   }
 
   updateProfile(profile: Profile) {

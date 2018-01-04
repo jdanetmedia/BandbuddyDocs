@@ -3,4 +3,5 @@ export interface Profile {
   lName: string;
   phone: number;
   websiteUrl: string;
+  avatar: string;
 }
