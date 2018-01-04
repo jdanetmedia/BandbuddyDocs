@@ -42,7 +42,7 @@ export class CommentsPage {
   postComment(comment: PostComment) {
     const itemsRef = this.database.list('comments');
     comment.postID = this.post.id;
-    comment.commentAuthor = this.post.authorName;
+    comment.commentAuthor = this.profile.fName;
     comment.commentDate = new Date().getTime().toString();
     this.profile.avatar ? comment.commentAuthorImage = this.profile.avatar : comment.commentAuthorImage = null;
     itemsRef.push(comment);
