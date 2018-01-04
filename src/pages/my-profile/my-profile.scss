@@ -1,12 +1,26 @@
 page-my-profile {
   .avatar-cnt {
     background-color: #eeeeee;
-    img {
-      display: block;
-      max-width: 100px;
+    .imgCircle {
+      width: 100px;
+      height: 100px;
       -webkit-border-radius: 50%;
       -moz-border-radius: 50%;
       border-radius: 50%;
+      overflow: hidden;
+      position: relative;
+      img {
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        -moz-transform: translateX(-50%) translateY(-50%);
+        -webkit-transform: translateX(-50%) translateY(-50%);
+        -o-transform: translateX(-50%) translateY(-50%);
+        -ms-transform: translateX(-50%) translateY(-50%);
+        transform: translateX(-50%) translateY(-50%);
+        width: 100%;
+        height: auto;
+      }
     }
     p {
       display: block;
