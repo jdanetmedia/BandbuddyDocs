@@ -3,6 +3,7 @@ export interface Post {
   postContent: string;
   author: string;
   authorName: string;
+  authorImage: string;
   date: string;
   postImage: string;
 }

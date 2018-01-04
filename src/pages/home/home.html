@@ -8,10 +8,31 @@
   <div class="say-something" (click)="toCreatePostPage()">
     Hvad vil du gerne dele?
   </div>
+
   <ion-card *ngFor="let post of posts | async">
-    <ion-card-header>{{ post.authorName }}</ion-card-header>
+
+    <ion-item>
+      <ion-avatar item-start>
+        <img *ngIf="post.authorImage" [src]="post.authorImage">
+        <img *ngIf="!post.authorImage" src="../../assets/imgs/profile-placeholder.png">
+      </ion-avatar>
+      <h2>{{ post.authorName }}</h2>
+      <p>{{ post.date }}</p>
+    </ion-item>
+
     <ion-card-content>
-      {{ post.postContent }}
+      <p>{{ post.postContent }}</p>
     </ion-card-content>
+
+    <ion-item>
+      <div item-end>
+        <button ion-button icon-left clear small color="dark">
+          <ion-icon name="text"></ion-icon>
+          <div>Kommentarer</div>
+        </button>
+      </div>
+    </ion-item>
+
   </ion-card>
+
 </ion-content>
