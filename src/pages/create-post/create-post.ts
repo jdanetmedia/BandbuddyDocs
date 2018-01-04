@@ -49,7 +49,7 @@ export class CreatePostPage {
     this.post.postContent = '';
   }
 
-  async takePhoto() {
+  async takePhoto(post: Post) {
     try {
       // Camera options
       const options: CameraOptions = {
@@ -64,16 +64,16 @@ export class CreatePostPage {
       }
       const result = await this.camera.getPicture(options);
 
-      const image = `data:image/jpeg:base64,${result}`;
+      const image = `data:image/jpeg;base64,${result}`;
 
-      const pictures = storage().ref('pictures/image');
+      // const pictures = storage().ref('pictures/profilbillede');
+      const pictures = storage().ref(`/billeder/post-${this.user.uid}-${new Date().getTime()}`);
       pictures.putString(image, 'data_url');
-      this.post.postImage = image;
+      post.postImage = image;
     }
     catch(e) {
       console.error(e);
     }
-
   }
 
 }

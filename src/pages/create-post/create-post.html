@@ -13,7 +13,7 @@
       <ion-textarea type="text" [(ngModel)]="post.postContent" placeholder="Skriv dit opslag..."></ion-textarea>
       <img *ngIf="post.postImage" [src]="post.postImage" />
       <ion-item>
-        <ion-icon item-end name="attach" (click)="takePhoto()"></ion-icon>
+        <ion-icon item-end name="attach" (click)="takePhoto(post)"></ion-icon>
         <ion-icon item-end name="send" (click)="createPost(post)"></ion-icon>
       </ion-item>
     </ion-card-content>
