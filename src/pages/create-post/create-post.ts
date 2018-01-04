@@ -6,7 +6,6 @@ import { User, storage } from "firebase";
 import { AngularFireAuth } from "angularfire2/auth";
 import { Profile } from "../../models/profile";
 import { Camera, CameraOptions } from "@ionic-native/camera";
-import { timestamp } from "rxjs/operators";
 
 @IonicPage()
 @Component({
