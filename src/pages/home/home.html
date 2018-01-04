@@ -24,6 +24,8 @@
       <p>{{ post.postContent }}</p>
     </ion-card-content>
 
+    <img *ngIf="post.postImage" [src]="post.postImage">
+
     <ion-item>
       <div item-end>
         <button ion-button icon-left clear small color="dark">
