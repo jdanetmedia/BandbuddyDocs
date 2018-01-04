@@ -17,7 +17,7 @@
         <img *ngIf="!post.authorImage" src="../../assets/imgs/profile-placeholder.png">
       </ion-avatar>
       <h2>{{ post.authorName }}</h2>
-      <p>{{ post.date }}</p>
+      <p>{{ post.date | date: 'd. MMMM yyyy'}}</p>
     </ion-item>
 
     <ion-card-content>
