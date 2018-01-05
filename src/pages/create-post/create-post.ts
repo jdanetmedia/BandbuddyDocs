@@ -60,8 +60,7 @@ export class CreatePostPage {
         destinationType: this.camera.DestinationType.DATA_URL,
         encodingType: this.camera.EncodingType.JPEG,
         mediaType: this.camera.MediaType.PICTURE,
-        correctOrientation: true,
-        cameraDirection: 1
+        correctOrientation: true
       }
       const result = await this.camera.getPicture(options);
 
