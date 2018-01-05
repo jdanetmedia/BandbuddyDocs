@@ -34,9 +34,7 @@ export class CommentsPage {
       this.profile = profile;
     });
     this.post = this.navParams.get('post');
-    this.comments = this.database.list('/comments', ref => ref.orderByChild('postID').equalTo(this.post.id)).valueChanges().map( (arr) => {
-      return arr.reverse();
-    });
+    this.comments = this.database.list('/comments', ref => ref.orderByChild('postID').equalTo(this.post.id)).valueChanges();
   }
 
   postComment(comment: PostComment) {

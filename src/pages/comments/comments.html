@@ -30,18 +30,6 @@
     </ion-card-content>
 
     <img *ngIf="post.postImage" [src]="post.postImage">
-    <ion-grid>
-      <ion-row class="comment-cnt">
-        <ion-col col-10>
-          <ion-input placeholder="Din kommentar..." type="text" [(ngModel)]="comment.postComment"></ion-input>
-        </ion-col>
-        <ion-col col-2>
-          <button ion-button clear (click)="postComment(comment)">
-            <ion-icon name="send" color="dark"></ion-icon>
-          </button>
-        </ion-col>
-      </ion-row>
-    </ion-grid>
     <div class="commentslist" *ngFor="let oneComment of comments | async">
       <ion-item>
         <ion-avatar item-start>
@@ -58,6 +46,18 @@
 
       </ion-card-content>
     </div>
+    <ion-grid>
+      <ion-row class="comment-cnt">
+        <ion-col col-10>
+          <ion-input placeholder="Skriv kommentar..." type="text" [(ngModel)]="comment.postComment"></ion-input>
+        </ion-col>
+        <ion-col col-2>
+          <button ion-button clear (click)="postComment(comment)">
+            <ion-icon name="send" color="dark"></ion-icon>
+          </button>
+        </ion-col>
+      </ion-row>
+    </ion-grid>
 
   </ion-card>
 </ion-content>
