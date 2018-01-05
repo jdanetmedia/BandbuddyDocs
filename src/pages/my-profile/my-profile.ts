@@ -44,7 +44,8 @@ export class MyProfilePage {
         destinationType: this.camera.DestinationType.DATA_URL,
         encodingType: this.camera.EncodingType.JPEG,
         mediaType: this.camera.MediaType.PICTURE,
-        correctOrientation: true
+        correctOrientation: true,
+        cameraDirection: 1
       }
       const result = await this.camera.getPicture(options);
 
