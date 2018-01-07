@@ -1,0 +1,21 @@
+<ion-header>
+
+  <ion-navbar color="green">
+    <ion-title>Rediger opslag</ion-title>
+  </ion-navbar>
+
+</ion-header>
+
+
+<ion-content>
+  <ion-card>
+    <ion-card-content>
+      <ion-textarea type="text" [(ngModel)]="post.postContent" placeholder="Skriv dit opslag..."></ion-textarea>
+      <img *ngIf="post.postImage" [src]="post.postImage" />
+      <ion-item>
+        <ion-icon item-end name="attach" (click)="takePhoto(post)"></ion-icon>
+        <ion-icon item-end name="send" (click)="updatePost(post)"></ion-icon>
+      </ion-item>
+    </ion-card-content>
+  </ion-card>
+</ion-content>

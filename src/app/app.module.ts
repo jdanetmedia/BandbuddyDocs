@@ -20,6 +20,7 @@ import { AngularFireAuthModule } from "angularfire2/auth";
 import { CreatePostPage } from "../pages/create-post/create-post";
 import { MyProfilePage } from "../pages/my-profile/my-profile";
 import { CommentsPage } from "../pages/comments/comments";
+import { EditPostPage } from "../pages/edit-post/edit-post";
 
 import { Camera } from '@ionic-native/camera';
 
@@ -33,7 +34,8 @@ import { Camera } from '@ionic-native/camera';
     TabsPage,
     CreatePostPage,
     MyProfilePage,
-    CommentsPage
+    CommentsPage,
+    EditPostPage
   ],
   imports: [
     BrowserModule,
@@ -52,7 +54,8 @@ import { Camera } from '@ionic-native/camera';
     TabsPage,
     CreatePostPage,
     MyProfilePage,
-    CommentsPage
+    CommentsPage,
+    EditPostPage
   ],
   providers: [
     StatusBar,
