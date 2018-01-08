@@ -1,6 +1,7 @@
 import { Component } from '@angular/core';
 import { NavController, NavParams } from 'ionic-angular';
 import { Post } from "../../models/post";
+import {AngularFireDatabase} from "angularfire2/database";
 
 @Component({
   selector: 'page-edit-post',
@@ -11,7 +12,8 @@ export class EditPostPage {
   post: Post;
 
   constructor(public navCtrl: NavController,
-              public navParams: NavParams) {
+              public navParams: NavParams,
+              public database: AngularFireDatabase) {
 
   }
 
@@ -20,6 +22,8 @@ export class EditPostPage {
   }
 
   updatePost(post: Post) {
+    const itemsRef = this.database.list('posts');
+    itemsRef.update(post.key, post);
     console.log('Post redigeres her');
     this.navCtrl.pop();
   }

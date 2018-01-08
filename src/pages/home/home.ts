@@ -26,7 +26,15 @@ export class HomePage {
     afAuth.authState.subscribe((user: User) => {
       this.user = user;
     });
-    this.posts = database.list('posts').valueChanges().map( (arr) => {
+    //this.posts = database.list('posts').valueChanges().map( (arr) => {
+    //  return arr.reverse();
+    //});
+
+    this.posts = database.list('posts').snapshotChanges().map( changes => {
+      return changes.map(c => ({
+        key: c.payload.key, ...c.payload.val()
+      }));
+    }).map( (arr) => {
       return arr.reverse();
     });
   }
@@ -52,7 +60,8 @@ export class HomePage {
           text: 'Slet opslag',
           role: 'destructive',
           handler: () => {
-            console.log('Update post eventually');
+            const itemsRef = this.database.list('posts');
+            itemsRef.remove(post.key);
           }
         },{
           text: 'Cancel',
